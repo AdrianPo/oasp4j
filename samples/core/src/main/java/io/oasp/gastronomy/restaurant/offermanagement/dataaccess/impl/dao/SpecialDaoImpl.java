@@ -54,7 +54,8 @@ public class SpecialDaoImpl extends ApplicationMasterDataDaoImpl<SpecialEntity> 
     if (searchCriteriaTo.getStartingDate() != null) {
       LocalDateTime searchDate = searchCriteriaTo.getStartingDate();
       query.where($(special.getActivePeriod().getStartingDay()).eq(searchDate.getDayOfWeek()));
-      query.where($(special.getActivePeriod().getStartingHour()).gt(searchDate.getHour()));
+      query.where($(special.getActivePeriod().getStartingHour()).loe(searchDate.getHour()));
+      query.where($(special.getActivePeriod().getEndingHour()).gt(searchDate.getHour()));
       query.orderBy($(special.getActivePeriod().getStartingHour()).asc());
     }
     List<SpecialEntity> result = query.fetch();
