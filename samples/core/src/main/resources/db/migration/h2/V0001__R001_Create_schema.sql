@@ -101,6 +101,23 @@ CREATE TABLE OrderPosition(
 
 );
 
+-- *** Special ***
+CREATE TABLE Special(
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  offerId BIGINT,
+  modificationCounter INTEGER NOT NULL,
+  comment VARCHAR(255),
+  name VARCHAR(255) NOT NULL,
+  specialPrice DECIMAL(19, 2),
+  startingHour INTEGER NOT NULL,
+  startingDay INTEGER NOT NULL,
+  endingHour INTEGER NOT NULL,
+  endingDay INTEGER NOT NULL,
+  CONSTRAINT PK_Special PRIMARY KEY(id),
+  CONSTRAINT FK_Special_offerId FOREIGN KEY(offerId) REFERENCES Offer(id) NOCHECK,
+  CONSTRAINT UC_Special_unique UNIQUE (name)
+);
+
 -- *** Bill ***
 CREATE TABLE Bill(
   id BIGINT NOT NULL AUTO_INCREMENT,
