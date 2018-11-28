@@ -26,6 +26,8 @@ public class OfferEto extends MenuItemEto implements Offer {
 
   private OfferState state;
 
+  private Money specialPrice;
+
   /**
    * The constructor.
    */
@@ -105,4 +107,21 @@ public class OfferEto extends MenuItemEto implements Offer {
 
     this.state = state;
   }
+
+  /**
+   * @return specialPrice
+   */
+  public Money getSpecialPrice() {
+
+    return this.specialPrice;
+  }
+
+  /**
+   * @param specialPrice new value of {@link #getspecialPrice}.
+   */
+  public void setSpecialPrice(Money specialPrice) {
+
+    this.specialPrice = specialPrice;
+  }
+
 }

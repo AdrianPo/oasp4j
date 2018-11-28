@@ -36,6 +36,8 @@ public class OfferEntity extends MenuItemEntity implements Offer {
 
   private OfferState state;
 
+  private Money specialPrice;
+
   /**
    * The constructor.
    */
@@ -231,4 +233,18 @@ public class OfferEntity extends MenuItemEntity implements Offer {
 
     this.state = state;
   }
+
+  @Override
+  @Transient
+  public Money getSpecialPrice() {
+
+    return this.specialPrice;
+  }
+
+  @Override
+  public void setSpecialPrice(Money specialPrice) {
+
+    this.specialPrice = specialPrice;
+  }
+
 }

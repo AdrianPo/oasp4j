@@ -36,7 +36,7 @@ public class SpecialDaoImpl extends ApplicationMasterDataDaoImpl<SpecialEntity> 
   }
 
   @Override
-  public List<SpecialEntity> getSpecialForSearchCriteria(SpecialSearchCriteriaTo searchCriteriaTo) {
+  public List<SpecialEntity> getAllSpecialsForSearchCriteria(SpecialSearchCriteriaTo searchCriteriaTo) {
 
     if (searchCriteriaTo == null) {
       return new ArrayList<>(0);
@@ -60,6 +60,18 @@ public class SpecialDaoImpl extends ApplicationMasterDataDaoImpl<SpecialEntity> 
     }
     List<SpecialEntity> result = query.fetch();
     return result;
+  }
+
+  @Override
+  public SpecialEntity getFirstSpecialForSearchCriteria(SpecialSearchCriteriaTo searchCriteriaTo) {
+
+    List<SpecialEntity> sortedSpecials = getAllSpecialsForSearchCriteria(searchCriteriaTo);
+
+    if (sortedSpecials.isEmpty()) {
+      return null;
+    }
+
+    return sortedSpecials.get(0);
   }
 
 }

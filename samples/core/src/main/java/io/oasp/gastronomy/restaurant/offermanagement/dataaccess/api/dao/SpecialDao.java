@@ -8,6 +8,8 @@ import io.oasp.module.jpa.dataaccess.api.MasterDataDao;
 
 public interface SpecialDao extends MasterDataDao<SpecialEntity> {
 
-  public List<SpecialEntity> getSpecialForSearchCriteria(SpecialSearchCriteriaTo searchCriteriaTo);
+  public List<SpecialEntity> getAllSpecialsForSearchCriteria(SpecialSearchCriteriaTo searchCriteriaTo);
+
+  public SpecialEntity getFirstSpecialForSearchCriteria(SpecialSearchCriteriaTo searchCriteriaTo);
 
 }

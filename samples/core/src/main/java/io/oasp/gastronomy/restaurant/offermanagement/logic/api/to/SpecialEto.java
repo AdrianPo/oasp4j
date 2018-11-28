@@ -3,6 +3,7 @@ package io.oasp.gastronomy.restaurant.offermanagement.logic.api.to;
 import io.oasp.gastronomy.restaurant.general.common.api.datatype.Money;
 import io.oasp.gastronomy.restaurant.offermanagement.common.api.Special;
 import io.oasp.gastronomy.restaurant.offermanagement.common.api.WeeklyPeriod;
+import io.oasp.gastronomy.restaurant.offermanagement.dataaccess.api.WeeklyPeriodEmbeddable;
 import io.oasp.module.basic.common.api.to.AbstractEto;
 
 public class SpecialEto extends AbstractEto implements Special {
@@ -13,7 +14,7 @@ public class SpecialEto extends AbstractEto implements Special {
 
   private Long offerId;
 
-  private WeeklyPeriod activePeriod;
+  private WeeklyPeriodEmbeddable activePeriod;
 
   private Money specialPrice;
 
@@ -35,7 +36,7 @@ public class SpecialEto extends AbstractEto implements Special {
   }
 
   @Override
-  public WeeklyPeriod getActivePeriod() {
+  public WeeklyPeriodEmbeddable getActivePeriod() {
 
     return this.activePeriod;
   }
@@ -43,7 +44,12 @@ public class SpecialEto extends AbstractEto implements Special {
   @Override
   public void setActivePeriod(WeeklyPeriod activePeriod) {
 
-    this.activePeriod = activePeriod;
+    WeeklyPeriodEmbeddable embeddable = new WeeklyPeriodEmbeddable();
+    embeddable.setEndingDay(activePeriod.getEndingDay());
+    embeddable.setStartingDay(activePeriod.getStartingDay());
+    embeddable.setEndingHour(activePeriod.getEndingHour());
+    embeddable.setStartingHour(activePeriod.getStartingHour());
+    this.activePeriod = embeddable;
   }
 
   @Override

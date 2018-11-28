@@ -19,6 +19,7 @@ import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.ProductSearchC
 import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.ProductSortBy;
 import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.SideDishEto;
 import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.SpecialEto;
+import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.SpecialSearchCriteriaTo;
 import io.oasp.module.jpa.common.api.to.PaginatedListTo;
 
 /**
@@ -228,4 +229,6 @@ public interface Offermanagement {
   SpecialEto saveSpecial(@Valid SpecialEto special);
 
   void deleteSpecial(Long specialId);
+
+  SpecialEto findActiveSpecial(SpecialSearchCriteriaTo criteria);
 }

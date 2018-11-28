@@ -1,6 +1,7 @@
 package io.oasp.gastronomy.restaurant.offermanagement.logic.impl;
 
 import java.sql.Blob;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -47,6 +48,7 @@ import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.ProductSearchC
 import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.ProductSortBy;
 import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.SideDishEto;
 import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.SpecialEto;
+import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.SpecialSearchCriteriaTo;
 import io.oasp.module.jpa.common.api.to.PaginatedListTo;
 
 /**
@@ -92,7 +94,15 @@ public class OffermanagementImpl extends AbstractComponentFacade implements Offe
   public OfferEto findOffer(Long id) {
 
     LOG.debug("Get OfferEto with id '{}' from database.", id);
-    return getBeanMapper().map(getOfferDao().findOne(id), OfferEto.class);
+    OfferEto offerEto = getBeanMapper().map(getOfferDao().findOne(id), OfferEto.class);
+    SpecialSearchCriteriaTo criteriaTO = new SpecialSearchCriteriaTo();
+    criteriaTO.setOfferNumber(id);
+    criteriaTO.setStartingDate(LocalDateTime.now());
+    SpecialEto specialEto = findActiveSpecial(criteriaTO);
+    if (specialEto != null && specialEto.getSpecialPrice() != null) {
+      offerEto.setSpecialPrice(specialEto.getSpecialPrice());
+    }
+    return offerEto;
   }
 
   @Override
@@ -555,6 +565,13 @@ public class OffermanagementImpl extends AbstractComponentFacade implements Offe
   public void deleteSpecial(Long specialId) {
 
     getSpecialDao().delete(specialId);
+  }
+
+  @Override
+  public SpecialEto findActiveSpecial(SpecialSearchCriteriaTo criteria) {
+
+    SpecialEntity special = getSpecialDao().getFirstSpecialForSearchCriteria(criteria);
+    return getBeanMapper().map(special, SpecialEto.class);
   }
 
 }
