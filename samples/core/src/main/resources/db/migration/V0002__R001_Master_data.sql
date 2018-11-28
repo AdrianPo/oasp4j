@@ -48,7 +48,12 @@ INSERT INTO BillOrderPosition (billId, orderPositionsId) VALUES (2,3);
 INSERT INTO BillOrderPosition (billId, orderPositionsId) VALUES (2,4);
 
 
-INSERT INTO StaffMember (id, modificationCounter, role, login, firstname, lastname) VALUES (0, 0, 3, 'chief', 'Charly', 'Chief');
-INSERT INTO StaffMember (id, modificationCounter, role, login, firstname, lastname) VALUES (1, 0, 0, 'cook', 'Carl', 'Cook');
-INSERT INTO StaffMember (id, modificationCounter, role, login, firstname, lastname) VALUES (2, 0, 1, 'waiter', 'Willy', 'Waiter');
-INSERT INTO StaffMember (id, modificationCounter, role, login, firstname, lastname) VALUES (3, 0, 2, 'barkeeper', 'Bianca', 'Barkeeper');
+INSERT INTO StaffMember (id, modificationCounter, role, login, password, firstname, lastname) VALUES (0, 0, 3, 'chief', 'chief', 'Charly', 'Chief');
+INSERT INTO StaffMember (id, modificationCounter, role, login, password, firstname, lastname) VALUES (1, 0, 0, 'cook',  'cook','Carl', 'Cook');
+INSERT INTO StaffMember (id, modificationCounter, role, login, password, firstname, lastname) VALUES (2, 0, 1, 'waiter',  'waiter','Willy', 'Waiter');
+INSERT INTO StaffMember (id, modificationCounter, role, login, password, firstname, lastname) VALUES (3, 0, 2, 'barkeeper',  'barkeeper','Bianca', 'Barkeeper');
+INSERT INTO StaffMember (id, modificationCounter, role, login, password, firstname, lastname) VALUES (4, 0, 4, 'manager', 'manager', 'James', 'Manager');
+
+INSERT INTO Supplier (id, modificationCounter, name, description, rate) VALUES (1, 0, 'Natural Fruit Exports', 'Fruit', 4);
+INSERT INTO Supplier (id, modificationCounter, name, description, rate) VALUES (2, 0, 'CPS Gourmet', 'Meat', 5);
+INSERT INTO Supplier (id, modificationCounter, name, description, rate) VALUES (3, 0, 'Albafrost', 'Vegetables', 3);

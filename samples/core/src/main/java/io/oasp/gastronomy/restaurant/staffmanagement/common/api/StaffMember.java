@@ -30,4 +30,16 @@ public interface StaffMember extends ApplicationEntity, UserProfile {
    */
   void setRole(Role role);
 
+  /**
+   * @param password the new {@link #getPassword() password}.
+   */
+  void setPassword(String password);
+
+  /**
+   * user Password
+   *
+   * @return password
+   */
+  String getPassword();
+
 }
