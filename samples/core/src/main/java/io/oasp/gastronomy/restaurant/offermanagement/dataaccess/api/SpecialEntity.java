@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import io.oasp.gastronomy.restaurant.general.common.api.datatype.Money;
 import io.oasp.gastronomy.restaurant.general.dataaccess.api.ApplicationPersistenceEntity;
@@ -94,4 +95,26 @@ public class SpecialEntity extends ApplicationPersistenceEntity implements Speci
     this.specialPrice = specialPrice;
   }
 
+  @Override
+  @Transient
+  public Long getOfferId() {
+
+    if (this.offer == null) {
+      return null;
+    }
+    return this.offer.getId();
+  }
+
+  @Override
+  public void setOfferId(Long offerId) {
+
+    if (offerId == null) {
+      this.offer = null;
+    } else {
+      OfferEntity offerEntity = new OfferEntity();
+      offerEntity.setId(offerId);
+      this.offer = offerEntity;
+    }
+
+  }
 }

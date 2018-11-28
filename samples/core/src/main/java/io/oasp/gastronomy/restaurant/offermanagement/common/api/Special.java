@@ -2,7 +2,6 @@ package io.oasp.gastronomy.restaurant.offermanagement.common.api;
 
 import io.oasp.gastronomy.restaurant.general.common.api.ApplicationEntity;
 import io.oasp.gastronomy.restaurant.general.common.api.datatype.Money;
-import io.oasp.gastronomy.restaurant.offermanagement.dataaccess.api.OfferEntity;
 
 public interface Special extends ApplicationEntity {
 
@@ -17,14 +16,14 @@ public interface Special extends ApplicationEntity {
   void setName(String name);
 
   /**
-   * @return offer
+   * @return offer Id
    */
-  OfferEntity getOffer();
+  Long getOfferId();
 
   /**
-   * @param offer new value of {@link #getoffer}.
+   * @param name new value of {@link #getOfferId}.
    */
-  void setOffer(OfferEntity offer);
+  void setOfferId(Long offerId);
 
   /**
    * @return activePeriod
