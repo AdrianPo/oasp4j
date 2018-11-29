@@ -9,6 +9,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import io.oasp.gastronomy.restaurant.general.common.api.RestService;
 import io.oasp.gastronomy.restaurant.suppliermanagement.logic.api.Suppliermanagement;
 import io.oasp.gastronomy.restaurant.suppliermanagement.logic.api.to.SupplierCto;
 import io.oasp.gastronomy.restaurant.suppliermanagement.logic.api.to.SupplierEto;
@@ -21,7 +22,7 @@ import io.oasp.module.jpa.common.api.to.PaginatedListTo;
 @Path("/suppliermanagement/v1")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public interface SuppliermanagementRestService {
+public interface SuppliermanagementRestService extends RestService {
 
   /**
    * Delegates to {@link Suppliermanagement#findSupplier}.
