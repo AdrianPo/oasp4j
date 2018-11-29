@@ -1,10 +1,10 @@
 package io.oasp.gastronomy.restaurant.staffmanagement.logic.api;
 
+import java.util.List;
+
 import io.oasp.gastronomy.restaurant.staffmanagement.logic.api.to.StaffMemberEto;
 import io.oasp.gastronomy.restaurant.staffmanagement.logic.api.to.StaffMemberSearchCriteriaTo;
 import io.oasp.module.jpa.common.api.to.PaginatedListTo;
-
-import java.util.List;
 
 /**
  * Interface for StaffManagement component.
@@ -30,7 +30,7 @@ public interface Staffmanagement {
   List<StaffMemberEto> findAllStaffMembers();
 
   /**
-   * Returns a list of staff memberss matching the search criteria.
+   * Returns a list of staff members matching the search criteria.
    *
    * @param criteria the {@link StaffMemberSearchCriteriaTo}.
    * @return the {@link List} of matching {@link StaffMemberEto}s.
@@ -54,5 +54,4 @@ public interface Staffmanagement {
    * @return the saved {@link StaffMemberEto}
    */
   StaffMemberEto saveStaffMember(StaffMemberEto staffMember);
-
 }

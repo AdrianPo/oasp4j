@@ -23,6 +23,8 @@ public class UserDetailsClientTo extends AbstractTo implements UserProfile {
 
   private Role role;
 
+  private String password;
+
   /**
    * The constructor.
    */
@@ -101,6 +103,22 @@ public class UserDetailsClientTo extends AbstractTo implements UserProfile {
   public void setRole(Role role) {
 
     this.role = role;
+  }
+
+  /**
+   * @return password
+   */
+  public String getPassword() {
+
+    return this.password;
+  }
+
+  /**
+   * @param password new value of {@link #getpassword}.
+   */
+  public void setPassword(String password) {
+
+    this.password = password;
   }
 
 }

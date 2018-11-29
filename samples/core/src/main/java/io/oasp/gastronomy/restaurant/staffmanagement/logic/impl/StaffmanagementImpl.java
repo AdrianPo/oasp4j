@@ -133,8 +133,8 @@ public class StaffmanagementImpl extends AbstractComponentFacade implements Staf
             targetStaffMember.getName(), staffMember.getName());
       }
     }
-    StaffMemberEntity persistedStaffMember =
-        getStaffMemberDao().save(getBeanMapper().map(staffMember, StaffMemberEntity.class));
+    StaffMemberEntity persistedStaffMember = getStaffMemberDao()
+        .save(getBeanMapper().map(staffMember, StaffMemberEntity.class));
     return getBeanMapper().map(persistedStaffMember, StaffMemberEto.class);
   }
 
